@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Story, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { described_class.new(title: '', url: '') }
+  context 'with validations' do
+
+  end
 end
