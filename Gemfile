@@ -5,6 +5,8 @@ ruby '2.5.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
+# Official Sass port of Bootstrap 2 and 3. http://getbootstrap.com/css/#sass
+gem 'bootstrap-sass', '3.3.7'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
