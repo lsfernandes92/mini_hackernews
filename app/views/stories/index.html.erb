@@ -1,0 +1,8 @@
+<div class="container">
+  <% @stories.each do |story| %>
+    <h2>
+      <%= story.title %>
+      <i>(<%= story.url %>)</i>
+    </h2>
+  <% end %>
+</div>
