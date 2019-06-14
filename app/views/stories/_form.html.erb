@@ -1,0 +1,19 @@
+<% @story.errors.full_messages.each do |message| %>
+  <div class="alert alert-danger">
+    <%= message %>
+  </div>
+<% end %>
+
+<%= form_for @story do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control col-7'%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :url %>
+    <%= f.text_field :url, class: 'form-control' %>
+  </div>
+
+  <%= f.submit 'Submit', class: 'btn btn-primary form-control'%>
+<% end %>

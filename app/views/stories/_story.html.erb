@@ -1,0 +1,14 @@
+<h2>
+  <li>
+    <%= link_to "#{story.title} (#{story.url})", story.url %>
+    <h6>
+      <%= link_to "delete",
+        story,
+        method: :delete,
+        data: { confirm: "Are you want to delete the story?" }
+      %>
+      |
+      <%= link_to "discuss", "#" %>
+    </h6>
+  </li>
+</h2>
