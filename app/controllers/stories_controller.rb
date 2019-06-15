@@ -5,6 +5,10 @@ class StoriesController < ApplicationController
     @stories = Story.all
   end
 
+  def show
+    @story = Story.find(params[:id])
+  end
+
   def new
     @story = Story.new
     render :new

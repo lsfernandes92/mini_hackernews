@@ -1,0 +1,21 @@
+<% @story.errors.full_messages.each do |message| %>
+  <div class="alert alert-danger">
+    <%= message %>
+  </div>
+<% end %>
+
+<li>
+  <%= comment.body %>
+
+  <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small>
+
+  <p>
+    <small><%= link_to 'reply', comment %></small>
+  </p>
+  
+  <ul>
+    <div class="container">
+      <%= render partial: 'comments/comment', collection: comment.comments %>
+    </div>
+  </ul>
+</li>

@@ -1,14 +1,21 @@
 <h2>
   <li>
-    <%= link_to "#{story.title} (#{story.url})", story.url %>
-    <h6>
+    <p><%= link_to "#{story.title} (#{story.url_host})", story.url %></p>
+
+    <small>
       <%= link_to "delete",
         story,
         method: :delete,
         data: { confirm: "Are you want to delete the story?" }
       %>
+
       |
-      <%= link_to "discuss", "#" %>
-    </h6>
+
+      <% if story.all_comments.present? %>
+        <%= link_to "#{story.all_comments.count} comments", story %>
+      <% else %>
+        <%= link_to "discuss", story %>
+      <% end %>
+    </small>
   </li>
 </h2>
