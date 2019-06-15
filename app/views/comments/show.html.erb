@@ -1,0 +1,20 @@
+<div class="container">
+  <small>
+    Submitted <%= time_ago_in_words(@comment.created_at) %> ago
+
+    |
+
+    parent on:
+    <%= link_to "#{@story_parent.title} (#{@story_parent.url})", @story_parent.url %>
+  </small>
+
+  <p><%= @comment.body %></p>
+
+  <%= form_for [@comment, Comment.new] do |f| %>
+    <div class="form-group">
+      <%= f.text_area :body, placeholder: 'Add a comment', class: 'form-control' %>
+    </div>
+
+    <%= f.submit 'Add comment', class: 'btn btn-primary form-control' %>
+  <% end %>
+</div>
