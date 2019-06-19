@@ -1,12 +1,11 @@
 class StoriesController < ApplicationController
-  before_action :set_produto, only: [:destroy]
+  before_action :set_produto, only: [:show, :destroy]
 
   def index
     @stories = Story.all
   end
 
   def show
-    @story = Story.find(params[:id])
   end
 
   def new
@@ -18,17 +17,21 @@ class StoriesController < ApplicationController
     @story = Story.new story_params
 
     if @story.save
-      flash[:notice] = "Story submitted successfully"
+      flash[:notice] = "Story submitted successfully!"
       redirect_to root_url
     else
-      flash.now[:notice] = "Fail to submit story"
       render :new
     end
   end
 
   def destroy
-    @story.destroy
-    redirect_to root_url
+    if @story.destroy
+      flash[:notice] = "Story deleted successfully!"
+      redirect_to root_url
+    else
+      flash.now[:notice] = "Fail to delete story."
+      render :new
+    end
   end
 
     private

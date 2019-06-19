@@ -16,6 +16,7 @@ RSpec.feature 'Story', type: :feature do
       click_on('Submit')
 
       expect(page).to have_current_path(root_url)
+      expect(page).to have_content('Story submitted successfully!')
       expect(page).to have_content('Some cool test that describe the story')
     end
   end
@@ -48,7 +49,7 @@ RSpec.feature 'Story', type: :feature do
 
       expect(page).to have_content(story.title)
       expect{ click_link('delete') }.to change{ Story.count }.by(-1)
-      expect(page).to have_current_path(root_url)
+      expect(page).to have_content("Story deleted successfully!")
       expect(page).not_to have_content(story.title)
     end
   end
