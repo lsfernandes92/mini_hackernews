@@ -60,4 +60,26 @@ RSpec.feature 'Story', type: :feature do
 
     expect(page).to have_current_path(story.url)
   end
+
+  context 'with comments' do
+    let(:one_comment) { create(:comment) }
+    let(:another_comment) { create(:comment) }
+
+    before do
+      one_comment.comments << another_comment
+      story.comments << one_comment
+    end
+
+    scenario 'displays the comment count' do
+      visit(root_url)
+
+      expect(page).to have_link("#{story.all_comments.count} comments")
+    end
+  end
+
+  scenario 'should show discuss link when not commented' do
+    visit(root_url)
+
+    expect(page).to have_link("discuss")
+  end
 end
