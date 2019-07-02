@@ -12,11 +12,13 @@ class Story < ApplicationRecord
     parent_comments + child_comments
   end
 
-  def parent_comments
-    Comment.where(commentable_id: id)
-  end
+    private
+    
+    def parent_comments
+      Comment.where(commentable_id: id)
+    end
 
-  def child_comments
-    Comment.where(commentable_id: parent_comments.map(&:id))
-  end
+    def child_comments
+      Comment.where(commentable_id: parent_comments.map(&:id))
+    end
 end
